@@ -68,7 +68,7 @@
  
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Provider</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception </span>{
-        ClassPathXmlApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-keyword">new</span> String[] {<span class="hljs-string">"http://10.20.160.198/wiki/display/dubbo/provider.xml"</span>});
+        ClassPathXmlApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-keyword">new</span> String[]{<span class="hljs-string">"META-INF/spring/dubbo-demo-provider.xml"</span>});
         context.start();
         System.in.read(); <span class="hljs-comment">// 按任意键退出</span>
     }
@@ -101,7 +101,7 @@
  
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Consumer</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception </span>{
-        ClassPathXmlApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-keyword">new</span> String[] {<span class="hljs-string">"http://10.20.160.198/wiki/display/dubbo/consumer.xml"</span>});
+       ClassPathXmlApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-keyword">new</span> String[] {<span class="hljs-string">"META-INF/spring/dubbo-demo-consumer.xml"</span>});
         context.start();
         DemoService demoService = (DemoService)context.getBean(<span class="hljs-string">"demoService"</span>); <span class="hljs-comment">// 获取远程服务代理</span>
         String hello = demoService.sayHello(<span class="hljs-string">"world"</span>); <span class="hljs-comment">// 执行远程方法</span>
