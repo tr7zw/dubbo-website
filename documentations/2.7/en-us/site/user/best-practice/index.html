@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>服务化最佳实践 - Dubbo 2.7.8</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u670d\u52a1\u5316\u6700\u4f73\u5b9e\u8df5";
+    var mkdocs_page_input_path = "user/best-practice.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Dubbo 2.7.8</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">用户手册</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">入门</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../preface/background/">背景</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../preface/background/">需求</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../preface/architecture/">架构</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../preface/usage/">用法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../quick-start/">快速启动</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../dependencies/">依赖</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../maturity/">成熟度</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">配置</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../configuration/xml/">XML 配置</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../configuration/api/">API 配置</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../configuration/annotation/">Annotation 配置</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../configuration/annotation/">动态配置中心</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../configuration/configuration-load-process/">配置加载流程</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../configuration/environment-variables.md">自动加载环境变量</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">示例</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/preflight-check/">启动时检查</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/fault-tolerent-strategy/">集群容错</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/loadbalance/">负载均衡</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/thread-model/">线程模型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/explicit-target/">直连提供者</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/subscribe-only/">只订阅</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/registry-only/">只注册</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/static-service/">静态服务</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/multi-protocols/">多协议</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/multi-registry/">多注册中心</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/service-group/">服务分组</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/multi-versions/">多版本</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/group-merger/">分组聚合</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/parameter-validation/">参数验证</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/result-cache/">结果缓存</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/generic-reference/">泛化引用</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/generic-service/">泛化实现</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/echo-service/">回声测试</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/context/">上下文信息</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/attachment/">隐式参数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/async-call/">异步调用</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/async-execute-on-provider/">服务端异步</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/local-call/">本地调用</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/callback-parameter/">参数回调</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/events-notify/">事件通知</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/local-stub/">本地存根</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/local-mock/">本地伪装</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/delay-publish/">延迟暴露</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/concurrency-control/">并发控制</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/config-connection.md">连接控制</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/lazy-connect/">延迟连接</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/stickiness/">粘滞连接</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/token-authorization/">令牌验证</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/routing-rule/">路由规则</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/config-rule/">配置规则</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/service-downgrade/">服务降级</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/graceful-shutdown/">优雅停机</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/hostname-binding/">主机绑定</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/logger-strategy/">日志适配</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/accesslog/">访问日志</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/service-container/">服务容器</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/distributed-transaction/">分布式事务</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/dump/">线程栈自动dump</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/netty4/">Netty4</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/serialization/">Kryo和FST序列化</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/simplify-registry-data.md">简化注册中心URL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/api.md">API 参考手册</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">schema 配置参考手册</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-service/">dubbo:service</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-reference/">dubbo:reference</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-protocol/">dubbo:protocol</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-registry/">dubbo:registry</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-monitor/">dubbo:monitor</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-application/">dubbo:application</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-module/">dubbo:module</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-provider/">dubbo:provider</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-consumer/">dubbo:consumer</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-method/">dubbo:method</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-argument/">dubbo:argument</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-parameter/">dubbo:parameter</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-config-center/">dubbo:config-center</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">协议参考手册</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/protocol/dubbo/">dubbo://</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/protocol/rmi/">rmi://</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/protocol/hessian/">hessian://</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/protocol/http/">http://</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/protocol/thrift/">thrift://</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/protocol/rest/">rest://</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">注册中心参考手册</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/registry/multicast/">Multicast 注册中心</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/registry/zookeeper/">Zookeeper 注册中心</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/registry/redis/">Redis 注册中心</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/registry/simple/">Simple 注册中心</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">元数据中心参考手册</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/metadata/metadata-redis.md">Redis 元数据中心</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/registry/metadata-zookeeper.md">Zookeeper 元数据中心</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../references/telnet/">telnet 命令参考手册</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../references/qos/">在线运维命令-QOS</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../references/maven/">maven 插件参考手册</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">服务化最佳实践</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#servitization-best-practice">Servitization best practice</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#modularization">Modularization</a></li>
+        
+            <li><a class="toctree-l4" href="#granularity">Granularity</a></li>
+        
+            <li><a class="toctree-l4" href="#version">Version</a></li>
+        
+            <li><a class="toctree-l4" href="#compatibility">Compatibility</a></li>
+        
+            <li><a class="toctree-l4" href="#enumeration-type">Enumeration type</a></li>
+        
+            <li><a class="toctree-l4" href="#serialization">Serialization</a></li>
+        
+            <li><a class="toctree-l4" href="#exception">Exception</a></li>
+        
+            <li><a class="toctree-l4" href="#call">Call</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../recommend/">推荐用法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../capacity-plan/">容量规划</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../perf-test/">性能测试报告</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../covergence.md">测试覆盖率报告</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">版本与升级</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../version-270.md">2.7.x升级步骤及注意事项</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">开发手册</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../dev/build/">源码构建</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/design/">框架设计</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/SPI/">扩展点加载</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/implementation/">实现细节</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">SPI 扩展实现</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/protocol/">协议扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/filter/">调用拦截扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/invoker-listener/">引用监听扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/exporter-listener/">暴露监听扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/cluster/">集群扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/router/">路由扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/load-balance/">负载均衡扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/merger/">合并结果扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/registry/">注册中心扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/monitor/">监控中心扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/extension-factory/">扩展点加载扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/proxy-factory/">动态代理扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/compiler/">编译器扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/dispatcher/">消息派发扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/threadpool/">线程池扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/serialize/">序列化扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/remoting/">网络传输扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/exchanger/">信息交换扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/networker/">组网扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/telnet-handler/">Telnet 命令扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/status-checker/">状态检查扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/container/">容器扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/page/">页面扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/cache/">缓存扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/validation/">验证扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/logger-adapter/">日志适配扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/config-center/">配置中心</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/contract/">公共契约</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/coding/">编码约定</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">设计原则</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/principals/code-detail/">魔鬼在细节</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/principals/general-knowledge/">一些设计上的基本常识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/principals/expansibility/">谈谈扩充式扩展与增量式扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/principals/configuration/">配置设计</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/principals/robustness/">设计实现的健壮性</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/principals/dummy/">防痴呆设计</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/principals/extension/">扩展点重构</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/release/">编码约定</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/contribution/">编码约定</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/checklist/">编码约定</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/code-smell/">编码约定</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/TCK/">编码约定</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">管理者文档</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../dev/introduction/">Dubbo Admin介绍</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/serviceSearch.md">服务搜索和详情</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/serviceGovernance.md">服务治理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/serviceTest.md">服务测试</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Dubbo 2.7.8</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>用户手册 &raquo;</li>
+        
+      
+    
+    <li>服务化最佳实践</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/apache/dubbo-website/edit/master/docs/user/best-practice.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="servitization-best-practice">Servitization best practice</h1>
+<h2 id="modularization">Modularization</h2>
+<p>It is recommended to put service interfaces, service models, service exceptions, and so on in the API package,Because the service model and exception are part of the API, it is also in conformity with the modularization principle:Reusing the publish equivalence principle (REP) and the Common Reuse Principle (CRP).</p>
+<p>If you need, you can also consider placing a spring reference configuration in the API package, so that the user can only use the configuration in the spring loading process, and the configuration suggestion is placed in the package directory of the module, so as not to conflict, eg:<code>com/alibaba/china/xxx/dubbo-reference.xml</code>。</p>
+<h2 id="granularity">Granularity</h2>
+<p>The service interface should have large granularity as possible.Each service method should represent a function rather than a step of a function, otherwise it will be faced with distributed transaction problem. Dubbo does not provide distributed transaction support at present.</p>
+<p>The service interface recommends the division of the business scene as a unit and abstract the similar business to prevent the explosion of the number of interfaces.</p>
+<p>It is not recommended to use an too abstract universal interface, such as Map query (Map), which has no explicit semantics, which will inconvenience later maintenance.</p>
+<h2 id="version">Version</h2>
+<p>Each interface should define a version number to provide possible subsequent incompatible upgrades,eg: <code>&lt;dubbo:service interface="com.xxx.XxxService" version="1.0" /&gt;</code>。</p>
+<p>It is recommended to use a two bit version number, because the third - bit version number is usually compatible with a compatible upgrade, and a change of service version is required only when incompatible.</p>
+<p>When incompatible, half of the provider is upgraded to a new version, and all the consumers are upgraded to a new version, and the remaining half providers are upgraded to a new version.</p>
+<h2 id="compatibility">Compatibility</h2>
+<p>The service interface adds method or the service model adds fields. It can be backward compatible, delete methods or delete fields, and will not be compatible. The new fields of the enumerated type are not compatible, so we need to upgrade by changing the version number.</p>
+<p>The compatibility of each protocol is different, see: <a href="../references/protocol/introduction/">Protocol introduction</a></p>
+<h2 id="enumeration-type">Enumeration type</h2>
+<p>If it is a complete set, you can use Enum, eg:<code>ENABLE</code>, <code>DISABLE</code>。</p>
+<p>If it is the type of business, there will be an obvious type of increase in the future, and it is not recommended to use  <code>Enum</code>, and it is not recommended to use Enum and can be replaced by  <code>String</code> .</p>
+<p>If you use<code>Enum</code>in the return value,And add the  <code>Enum</code> value,suggestions to upgrade the service consumption, so that the service provider does not return a new value.</p>
+<p>If the  <code>Enum</code>  value is used in the incoming parameter,and add the <code>Enum</code> value,it is suggested that the service provider be upgraded first, so that the service consumer will not pass the new value.</p>
+<h2 id="serialization">Serialization</h2>
+<p>The service parameters and return values suggest that the POJO object is used, that is, the object of the attribute is represented by the <code>setter</code>, <code>getter</code> method.</p>
+<p>Service parameters and return values do not recommend the use of interfaces, because data model abstraction is of little significance, and serialization requires interfaces to implement meta information of classes, and can not play the purpose of hiding implementation.</p>
+<p>Service parameters and return values must be byValue, but not byReference. The reference or return values of consumers and providers are not the same, but the values are the same. Dubbo does not support remote objects.</p>
+<h2 id="exception">Exception</h2>
+<p>It is suggested that abnormal reporting errors are used rather than return error codes, and exception information can carry more information and have more semantic friendliness.</p>
+<p>If you are worried about performance problems, you can use the override () method of fillInStackTrace () out of the exception class as an empty method to make it not a copy of the stack information when necessary.</p>
+<p>Query method is not recommended throws checked, otherwise the caller in the query will be too much <code>try...catch, and can not be processed.</code></p>
+<p>Service providers should not throw the exception of DAO or SQL to the consumer side. They should package the exception that consumers do not care about in service implementation, otherwise consumers may not be able to serialize the corresponding exception.</p>
+<h2 id="call">Call</h2>
+<p>Not just because it is a Dubbo call, wrap the call logic eith <code>try...catch</code>clause. <code>try...catch</code> should be added to the appropriate rollback boundary.</p>
+<p>The check logic for the input parameters should be available at the Provider side. For performance considerations, the service implementer may consider adding a service Stub class to the API package to complete the test.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../recommend/" class="btn btn-neutral float-right" title="推荐用法">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../references/maven/" class="btn btn-neutral" title="maven 插件参考手册"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/apache/dubbo-website/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../references/maven/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../recommend/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

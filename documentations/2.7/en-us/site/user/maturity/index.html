@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>成熟度 - Dubbo 2.7.8</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u6210\u719f\u5ea6";
+    var mkdocs_page_input_path = "user/maturity.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Dubbo 2.7.8</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">用户手册</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">入门</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../preface/background/">背景</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../preface/background/">需求</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../preface/architecture/">架构</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../preface/usage/">用法</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../quick-start/">快速启动</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../dependencies/">依赖</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">成熟度</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#maturity">Maturity</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#function-maturity">Function maturity</a></li>
+        
+            <li><a class="toctree-l4" href="#strategy-maturity">Strategy maturity</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">配置</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../configuration/xml/">XML 配置</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../configuration/api/">API 配置</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../configuration/annotation/">Annotation 配置</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../configuration/annotation/">动态配置中心</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../configuration/configuration-load-process/">配置加载流程</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../configuration/environment-variables.md">自动加载环境变量</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">示例</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/preflight-check/">启动时检查</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/fault-tolerent-strategy/">集群容错</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/loadbalance/">负载均衡</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/thread-model/">线程模型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/explicit-target/">直连提供者</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/subscribe-only/">只订阅</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/registry-only/">只注册</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/static-service/">静态服务</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/multi-protocols/">多协议</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/multi-registry/">多注册中心</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/service-group/">服务分组</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/multi-versions/">多版本</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/group-merger/">分组聚合</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/parameter-validation/">参数验证</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/result-cache/">结果缓存</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/generic-reference/">泛化引用</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/generic-service/">泛化实现</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/echo-service/">回声测试</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/context/">上下文信息</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/attachment/">隐式参数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/async-call/">异步调用</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/async-execute-on-provider/">服务端异步</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/local-call/">本地调用</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/callback-parameter/">参数回调</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/events-notify/">事件通知</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/local-stub/">本地存根</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/local-mock/">本地伪装</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/delay-publish/">延迟暴露</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/concurrency-control/">并发控制</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/config-connection.md">连接控制</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/lazy-connect/">延迟连接</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/stickiness/">粘滞连接</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/token-authorization/">令牌验证</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/routing-rule/">路由规则</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/config-rule/">配置规则</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/service-downgrade/">服务降级</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/graceful-shutdown/">优雅停机</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/hostname-binding/">主机绑定</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/logger-strategy/">日志适配</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/accesslog/">访问日志</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/service-container/">服务容器</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/distributed-transaction/">分布式事务</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/dump/">线程栈自动dump</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/netty4/">Netty4</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/serialization/">Kryo和FST序列化</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/simplify-registry-data.md">简化注册中心URL</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../demos/api.md">API 参考手册</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">schema 配置参考手册</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-service/">dubbo:service</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-reference/">dubbo:reference</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-protocol/">dubbo:protocol</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-registry/">dubbo:registry</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-monitor/">dubbo:monitor</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-application/">dubbo:application</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-module/">dubbo:module</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-provider/">dubbo:provider</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-consumer/">dubbo:consumer</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-method/">dubbo:method</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-argument/">dubbo:argument</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-parameter/">dubbo:parameter</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/xml/dubbo-config-center/">dubbo:config-center</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">协议参考手册</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/protocol/dubbo/">dubbo://</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/protocol/rmi/">rmi://</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/protocol/hessian/">hessian://</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/protocol/http/">http://</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/protocol/thrift/">thrift://</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/protocol/rest/">rest://</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">注册中心参考手册</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/registry/multicast/">Multicast 注册中心</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/registry/zookeeper/">Zookeeper 注册中心</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/registry/redis/">Redis 注册中心</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/registry/simple/">Simple 注册中心</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">元数据中心参考手册</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/metadata/metadata-redis.md">Redis 元数据中心</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../references/registry/metadata-zookeeper.md">Zookeeper 元数据中心</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../references/telnet/">telnet 命令参考手册</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../references/qos/">在线运维命令-QOS</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../references/maven/">maven 插件参考手册</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../best-practice/">服务化最佳实践</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../recommend/">推荐用法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../capacity-plan/">容量规划</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../perf-test/">性能测试报告</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../covergence.md">测试覆盖率报告</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">版本与升级</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../version-270.md">2.7.x升级步骤及注意事项</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">开发手册</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../dev/build/">源码构建</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/design/">框架设计</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/SPI/">扩展点加载</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/implementation/">实现细节</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">SPI 扩展实现</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/protocol/">协议扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/filter/">调用拦截扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/invoker-listener/">引用监听扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/exporter-listener/">暴露监听扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/cluster/">集群扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/router/">路由扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/load-balance/">负载均衡扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/merger/">合并结果扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/registry/">注册中心扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/monitor/">监控中心扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/extension-factory/">扩展点加载扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/proxy-factory/">动态代理扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/compiler/">编译器扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/dispatcher/">消息派发扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/threadpool/">线程池扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/serialize/">序列化扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/remoting/">网络传输扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/exchanger/">信息交换扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/networker/">组网扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/telnet-handler/">Telnet 命令扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/status-checker/">状态检查扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/container/">容器扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/page/">页面扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/cache/">缓存扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/validation/">验证扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/logger-adapter/">日志适配扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/impls/config-center/">配置中心</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/contract/">公共契约</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/coding/">编码约定</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">设计原则</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/principals/code-detail/">魔鬼在细节</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/principals/general-knowledge/">一些设计上的基本常识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/principals/expansibility/">谈谈扩充式扩展与增量式扩展</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/principals/configuration/">配置设计</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/principals/robustness/">设计实现的健壮性</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/principals/dummy/">防痴呆设计</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../dev/principals/extension/">扩展点重构</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/release/">编码约定</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/contribution/">编码约定</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/checklist/">编码约定</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/code-smell/">编码约定</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/TCK/">编码约定</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">管理者文档</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../dev/introduction/">Dubbo Admin介绍</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/serviceSearch.md">服务搜索和详情</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/serviceGovernance.md">服务治理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dev/serviceTest.md">服务测试</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Dubbo 2.7.8</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>用户手册 &raquo;</li>
+        
+      
+    
+    <li>成熟度</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/apache/dubbo-website/edit/master/docs/user/maturity.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="maturity">Maturity</h1>
+<h2 id="function-maturity">Function maturity</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Maturity</th>
+<th>Strength</th>
+<th>Problem</th>
+<th>Advise</th>
+<th>User</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Concurrency control</td>
+<td>Tested</td>
+<td>concurrency control</td>
+<td></td>
+<td>On trial</td>
+<td></td>
+</tr>
+<tr>
+<td>Connection control</td>
+<td>Tested</td>
+<td>connection number control</td>
+<td></td>
+<td>On trial</td>
+<td></td>
+</tr>
+<tr>
+<td>Connecting certain provider straightly</td>
+<td>Tested</td>
+<td>Provider service for point-to-point connecting straightly, for test</td>
+<td></td>
+<td>Can be used in the test environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Grouping polymerization</td>
+<td>Tested</td>
+<td>Return value of grouping polymerization, service for menu aggregation and other services</td>
+<td>Used in special scenes</td>
+<td>Can be used in the production environment</td>
+<td></td>
+</tr>
+<tr>
+<td>Parameters validator</td>
+<td>Tested</td>
+<td>parameters validator, JSR303  validation framework integration</td>
+<td>Have effect on Performance</td>
+<td>On trial</td>
+<td>LaiWang</td>
+</tr>
+<tr>
+<td>Result cache</td>
+<td>Tested</td>
+<td>result cache, for accelerating requests</td>
+<td></td>
+<td>On trial</td>
+<td></td>
+</tr>
+<tr>
+<td>Generic reference</td>
+<td>Stable</td>
+<td>Generic reference, remote call without a business interface class，for test platforms, open api proxy service, and so on</td>
+<td></td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Generic service</td>
+<td>Stable</td>
+<td>Generic service, no interface class is required to implement any interface, for mock platform</td>
+<td></td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Echo test</td>
+<td>Tested</td>
+<td>echo test</td>
+<td></td>
+<td>On trial</td>
+<td></td>
+</tr>
+<tr>
+<td>Attachment</td>
+<td>Stable</td>
+<td>Attachment</td>
+<td></td>
+<td>Can be used in the production environment</td>
+<td></td>
+</tr>
+<tr>
+<td>Asynchronous call</td>
+<td>Tested</td>
+<td>Unavailable asynchronous call</td>
+<td></td>
+<td>On trial</td>
+<td></td>
+</tr>
+<tr>
+<td>Local call</td>
+<td>Tested</td>
+<td>Local call</td>
+<td></td>
+<td>On trial</td>
+<td></td>
+</tr>
+<tr>
+<td>Callback parameter</td>
+<td>Tested</td>
+<td>Callback parameter</td>
+<td>Used in special scenes</td>
+<td>On trial</td>
+<td>Registry</td>
+</tr>
+<tr>
+<td>Events notify</td>
+<td>Tested</td>
+<td>Events notify, triggering before and after the remote call is executed</td>
+<td></td>
+<td>On trial</td>
+<td></td>
+</tr>
+<tr>
+<td>Local stub</td>
+<td>Stable</td>
+<td>Performing part of the logic on the client side</td>
+<td></td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Local mock</td>
+<td>Stable</td>
+<td>Forged return results, which can be executed when failed or directly executed, for service degradation</td>
+<td>Need support of registry</td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Delay publish</td>
+<td>Stable</td>
+<td>Delay publish, used to wait for the application to load warmup data or wait for spring context to load completely</td>
+<td></td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Lazy connect</td>
+<td>Tested</td>
+<td>Delay setting up connections, when invocation is set up</td>
+<td></td>
+<td>On trial</td>
+<td>Registry</td>
+</tr>
+<tr>
+<td>Stickness connections</td>
+<td>Tested</td>
+<td>Stickness connections, always make a request to the same provider service unless the service is down, and then switch to another</td>
+<td></td>
+<td>On trial</td>
+<td>Registry</td>
+</tr>
+<tr>
+<td>Token authorization</td>
+<td>Tested</td>
+<td>Token authorization, is used for service authorization</td>
+<td>Need support of registry</td>
+<td>On trial</td>
+<td></td>
+</tr>
+<tr>
+<td>Routing rule</td>
+<td>Tested</td>
+<td>Dynamically determining the call relationship</td>
+<td>Need support of registry</td>
+<td>On trial</td>
+<td></td>
+</tr>
+<tr>
+<td>Configuration rule</td>
+<td>Tested</td>
+<td>Distribute the configuration dynamically, is the switch of business logic</td>
+<td>Need support of registry</td>
+<td>On trial</td>
+<td></td>
+</tr>
+<tr>
+<td>Accesslog</td>
+<td>Tested</td>
+<td>Accesslog, used to record call information</td>
+<td>Local storage, impact performance, limited by disk size</td>
+<td>On trial</td>
+<td></td>
+</tr>
+<tr>
+<td>Distributed transaction</td>
+<td>Research</td>
+<td>JTA/XA three phase submission transaction(TCC)</td>
+<td>Unstable</td>
+<td>Unavailable</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="strategy-maturity">Strategy maturity</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Maturity</th>
+<th>Strength</th>
+<th>Problem</th>
+<th>Advise</th>
+<th>User</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zookeeper registry</td>
+<td>Stable</td>
+<td>Support the cluster, have various of related open source products, dubbo-2.3.3  and above versions are recommended</td>
+<td>Depended on the stability of zookeeper</td>
+<td>Can be used in the production environment</td>
+<td></td>
+</tr>
+<tr>
+<td>Redis registry</td>
+<td>Stable</td>
+<td>Support the client - based double - write clustering method with high performance</td>
+<td>Please ensure server time synchronization, be used to check the expired dirty data of heartbeat</td>
+<td>Can be used in the production environment</td>
+<td></td>
+</tr>
+<tr>
+<td>Multicast registry</td>
+<td>Tested</td>
+<td>Decentration, no registry needs to be installed</td>
+<td>Depending on the network topology  and routing, there is a risk across the server rooms</td>
+<td>Can be used in a small range, in development/test  environment</td>
+<td></td>
+</tr>
+<tr>
+<td>Simple registry</td>
+<td>Tested</td>
+<td>Dogfooding, the registry itself is also a standard RPC service</td>
+<td>No cluster support, may occur single-point failure</td>
+<td>On trial</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Maturity</th>
+<th>Strength</th>
+<th>Problem</th>
+<th>Advise</th>
+<th>User</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple monitor system</td>
+<td>Stable</td>
+<td>Support JFreeChart statistics report</td>
+<td>No cluster support, may occur single-point failure, but the failure does not affect the RPC call</td>
+<td>Can be used in the production environment</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Maturity</th>
+<th>Strength</th>
+<th>Problem</th>
+<th>Advise</th>
+<th>User</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dubbo protocol</td>
+<td>Stable</td>
+<td>Use NIO to reuse a single long connection and use a thread pool to process requests concurrently, Reduce handshake and increase concurrency efficiency, good performance</td>
+<td>A single connection will become a bottleneck in the transmission of large files</td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Rmi protocol</td>
+<td>Stable</td>
+<td>Interoperable with native RMI, based on the TCP protocol</td>
+<td>Occasionally the connection fails, and the stub needs to be rebuilt</td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Hessian protocol</td>
+<td>Stable</td>
+<td>Interoperable with native Hessian, based on the HTTP protocol</td>
+<td>Hessian.jar support is required, and the overhead of HTTP short connections is large</td>
+<td>Can be used in the production environment</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Maturity</th>
+<th>Strength</th>
+<th>Problem</th>
+<th>Advise</th>
+<th>User</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Netty Transporter</td>
+<td>Stable</td>
+<td>The NIO framework of JBoss, has good performance</td>
+<td>A request sends two events and needs to shield useless events</td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Mina Transporter</td>
+<td>Stable</td>
+<td>Classic NIO framework，stable</td>
+<td>The dispatch of the message queue is not timely, under great pressure, there will be FullGC</td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Grizzly Transporter</td>
+<td>Tested</td>
+<td>The NIO framework of Sun, applied in the GlassFish container</td>
+<td>The thread pool is not extensible, and Filter can't intercept the next filter</td>
+<td>On trial</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Maturity</th>
+<th>Strength</th>
+<th>Problem</th>
+<th>Advise</th>
+<th>User</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hessian Serialization</td>
+<td>Stable</td>
+<td>Good performance, multilingual support (recommended)</td>
+<td>The compatibility of various versions of Hessian is not good, it may be in conflict with the Hessian used in the application, and the Dubbo is embedded with the source code of the hessian3.2.1</td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Dubbo Serialization</td>
+<td>Tested</td>
+<td>The performance is better in a large number of POJO transmission by not transmitting the class information of POJO.</td>
+<td>When a field is added to the parameter object, an external file declaration is required</td>
+<td>On trial</td>
+<td></td>
+</tr>
+<tr>
+<td>Json Serialization</td>
+<td>Tested</td>
+<td>pure text, can be cross-language parsed, default using FastJson</td>
+<td>Poor performance</td>
+<td>On trial</td>
+<td></td>
+</tr>
+<tr>
+<td>Java Serialization</td>
+<td>Stable</td>
+<td>Java native support</td>
+<td>Poor performance</td>
+<td>Can be used in the production environment</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Maturity</th>
+<th>Strength</th>
+<th>Problem</th>
+<th>Advise</th>
+<th>User</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Javassist ProxyFactory</td>
+<td>Stable</td>
+<td>Bytecode generation instead of reflection, good performance(recommended)</td>
+<td>Depending on the javassist.jar and taking up the JVM's Perm memory, the Perm may have to be larger:java -XX:PermSize=128m</td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Jdk ProxyFactory</td>
+<td>Stable</td>
+<td>JDK native support</td>
+<td>Poor performance</td>
+<td>Can be used in the production environment</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Maturity</th>
+<th>Strength</th>
+<th>Problem</th>
+<th>Advise</th>
+<th>User</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Failover Cluster</td>
+<td>Stable</td>
+<td>Failure automatically switches, when failure occurs, retries other servers, usually used for read operations.(recommended)</td>
+<td>Retry will lead to longer delays</td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Failfast Cluster</td>
+<td>Stable</td>
+<td>Fast failure, only one call, failure to be reported immediately, usually used for non idempotent writing.</td>
+<td>If a server is being restarted, a call failure may occur</td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Failsafe Cluster</td>
+<td>Stable</td>
+<td>Failsafe, when abnormal, directly ignored, usually used to write to the audit log and other operations</td>
+<td>Call information loss</td>
+<td>Can be used in the production environment</td>
+<td>Monitor</td>
+</tr>
+<tr>
+<td>Failback Cluster</td>
+<td>Tested</td>
+<td>Failure auto recovery, backstage record failure request, regular retransmission, usually used for message notification operations</td>
+<td>Unreliable, lost when restart the server</td>
+<td>Can be used in the production environment</td>
+<td>Registry</td>
+</tr>
+<tr>
+<td>Forking Cluster</td>
+<td>Tested</td>
+<td>Multiple servers are invoked in parallel, as long as one success is returned, often used for high real-time reading operations.</td>
+<td>Need to waste more service resources</td>
+<td>Can be used in the production environment</td>
+<td></td>
+</tr>
+<tr>
+<td>Broadcast Cluster</td>
+<td>Tested</td>
+<td>A broadcast calls all providers, one by one, and any error is wrongly reported, usually used to update the provider's local state</td>
+<td>The speed is slow, and any false report is wrong.</td>
+<td>Can be used in the production environment</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Maturity</th>
+<th>Strength</th>
+<th>Problem</th>
+<th>Advise</th>
+<th>User</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Random LoadBalance</td>
+<td>Stable</td>
+<td>Random probability, set random probability according to weight(recommended)</td>
+<td>The probability of a collision on a cross section is high. When retrying, there may be an unequal instantaneous pressure.</td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>RoundRobin LoadBalance</td>
+<td>Stable</td>
+<td>Round Robin, setting wheel based ratio according to the weight after the Convention</td>
+<td>There is a slow machine accumulation request problem, and extreme circumstances may cause an avalanche</td>
+<td>Can be used in the production environment</td>
+<td></td>
+</tr>
+<tr>
+<td>LeastActive LoadBalance</td>
+<td>Stable</td>
+<td>The least active call number, the random number of the same active number, the active number is the count difference before and after the call, making the slow machine receive less request.</td>
+<td>Do not support the weight, in the capacity planning, not to pressure a machine oriented pressure measurement by weight capacity</td>
+<td>Can be used in the production environment</td>
+<td></td>
+</tr>
+<tr>
+<td>ConsistentHash LoadBalance</td>
+<td>Stable</td>
+<td>The consistency hash, the same parameters always request to the same provider, when one provider hung, originally sent to the provider's request, based on virtual nodes, spread to other providers, will not cause dramatic changes</td>
+<td>Uneven distribution of pressure</td>
+<td>Can be used in the production environment</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Maturity</th>
+<th>Strength</th>
+<th>Problem</th>
+<th>Advise</th>
+<th>User</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Condition routing rule</td>
+<td>Stable</td>
+<td>Routing rules based on conditional expressions, simple and easy to use</td>
+<td>There are some complex multi branch conditions, and the rules are difficult to describe</td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Script routing rules</td>
+<td>Tested</td>
+<td>Routing rules based on the script engine, powerful</td>
+<td>No sandbox is running, scripting ability is too powerful and may be the back door</td>
+<td>On trial</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Maturity</th>
+<th>Strength</th>
+<th>Problem</th>
+<th>Advise</th>
+<th>User</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spring Container</td>
+<td>Stable</td>
+<td>Automatically load all Spring configurations under the META-INF/spring directory</td>
+<td></td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Jetty Container</td>
+<td>Stable</td>
+<td>Start an embedded Jetty for reporting state</td>
+<td>When a large number of pages are accessed, the threads and memory of the server are affected</td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+<tr>
+<td>Log4j Container</td>
+<td>Stable</td>
+<td>Configuring the configuration of the log4j automatically, automatically subdirecting the log files by process at the startup of multiple processes</td>
+<td>The user can't control the configuration of log4j, inflexible</td>
+<td>Can be used in the production environment</td>
+<td>Alibaba</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../configuration/xml/" class="btn btn-neutral float-right" title="XML 配置">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../dependencies/" class="btn btn-neutral" title="依赖"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/apache/dubbo-website/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../dependencies/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../configuration/xml/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
