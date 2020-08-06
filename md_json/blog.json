@@ -316,6 +316,11 @@
       "meta": {}
     },
     {
+      "filename": "apache-dubbo-2019-2020.md",
+      "link": "/zh-cn/blog/apache-dubbo-2019-2020.html",
+      "meta": {}
+    },
+    {
       "filename": "apachecon-na-2018.md",
       "link": "/zh-cn/blog/apachecon-na-2018.html",
       "meta": {
@@ -323,11 +328,6 @@
         "keywords": "Dubbo, ApacheCon NA",
         "description": "本文将向你介绍在ApacheCon大会议程公布上相关Dubbo议题演讲。"
       }
-    },
-    {
-      "filename": "apche-dubbo-2019-2020.md",
-      "link": "/zh-cn/blog/apche-dubbo-2019-2020.html",
-      "meta": {}
     },
     {
       "filename": "build-new-docker-image-in-dockerhub.md",
