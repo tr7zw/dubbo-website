@@ -19,7 +19,7 @@
 <h2>快速上手</h2>
 <p>Dubbo 融合 Nacos 成为注册中心的操作步骤非常简单，大致步骤可分为“增加 Maven 依赖”以及“配置注册中心“。</p>
 <h3>增加 Maven 依赖</h3>
-<p>首先，您需要 <code>dubbo-registry-nacos</code> 的 Maven 依赖添加到您的项目中 <code>pom.xml</code> 文件中，并且强烈地推荐您使用 Dubbo <code>2.6.5</code>：</p>
+<p>首先，您需要将 <code>dubbo-registry-nacos</code> 的 Maven 依赖添加到您的项目 <code>pom.xml</code> 文件中，并且强烈地推荐您使用 Dubbo <code>2.6.5</code>：</p>
 <pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
 
     ...
@@ -56,9 +56,9 @@
     
 <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
 </code></pre>
-<p>当项目中添加  <code>dubbo-registry-nacos</code> 后，您无需显示地编程实现服务发现和注册逻辑，实际实现由该三方包提供，接下来配置 Naocs 注册中心。</p>
+<p>当项目中添加  <code>dubbo-registry-nacos</code> 后，您无需显式地编程实现服务发现和注册逻辑，实际实现由该三方包提供，接下来配置 Naocs 注册中心。</p>
 <h3>配置注册中心</h3>
-<p>假设您 Dubbo 应用使用 Spring Framework 装配，将有两种配置方法可选，分别为：<a href="https://mercyblitz.github.io/2018/01/18/Dubbo-%E5%A4%96%E9%83%A8%E5%8C%96%E9%85%8D%E7%BD%AE/">Dubbo Spring 外部化配置</a>以及 Spring XML 配置文件以及 ，推荐前者。</p>
+<p>假设您 Dubbo 应用使用 Spring Framework 装配，将有两种配置方法可选，分别为：<a href="https://mercyblitz.github.io/2018/01/18/Dubbo-%E5%A4%96%E9%83%A8%E5%8C%96%E9%85%8D%E7%BD%AE/">Dubbo Spring 外部化配置</a>以及 Spring XML 配置文件，推荐前者。</p>
 <h3><a href="https://mercyblitz.github.io/2018/01/18/Dubbo-%E5%A4%96%E9%83%A8%E5%8C%96%E9%85%8D%E7%BD%AE/">Dubbo Spring 外部化配置</a></h3>
 <p>Dubbo Spring 外部化配置是由 Dubbo <code>2.5.8</code> 引入的新特性，可通过 Spring <code>Environment</code> 属性自动地生成并绑定 Dubbo 配置 Bean，实现配置简化，并且降低微服务开发门槛。</p>
 <p>假设您的 Nacos Server 同样运行在服务器 <code>10.20.153.10</code> 上，并使用默认 Nacos 服务端口 <code>8848</code>，您只需将 <code>dubbo.registry.address</code> 属性调整如下：</p>
