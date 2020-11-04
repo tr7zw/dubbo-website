@@ -13,7 +13,7 @@ nav:
     - "2.7":
       - "User's Guide":
         - "Preface":
-            - "Bakcground": 'docs/2.7/user/preface/background.md'
+            - "Background": 'docs/2.7/user/preface/background.md'
             - "Requirements": 'docs/2.7/user/preface/background.md'
             - "Architecture": 'docs/2.7/user/preface/architecture.md'
             - "Usage": 'docs/2.7/user/preface/usage.md'
@@ -156,7 +156,7 @@ nav:
         - "Testing": 'docs/2.7/admin/serviceTest.md'
     - "3.0":
       - "User's Guide":
-        - "Bakcground": 'docs/3.0/user/preface/background.md'
+        - "Background": 'docs/3.0/user/preface/background.md'
   - "Blog":
       - "Your First Dubbo Demo": 'blog/dubbo-101.md'
       - "Dubbo Admin service test": 'blog/service-test.md'
